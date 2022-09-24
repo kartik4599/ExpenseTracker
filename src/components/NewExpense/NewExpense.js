@@ -1,9 +1,18 @@
 import ExpenseForm from "../Expenses/ExpenseForm";
 import "./NewExpense.css";
 
-const NewExpense=()=>{
+const NewExpense=(props)=>{
+
+    const importData=(data)=>{
+        data={
+            ...data,
+            id:Math.random().toString()
+        }
+        props.onImportData(data);
+    }
+
     return(<div className="new-expense">
-        <ExpenseForm/>
+        <ExpenseForm onimportData={importData} />
     </div>);
 }
 

@@ -26,9 +26,14 @@ const App = () => {
     },
   ];
 
+  const importData=(data)=>{
+    expenses.push(data);
+    console.log(expenses);
+  }
+
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onImportData={importData}/>
       <Expenses items={expenses} />
     </div>
   );
