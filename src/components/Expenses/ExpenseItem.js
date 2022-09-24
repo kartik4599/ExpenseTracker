@@ -6,10 +6,16 @@ import './ExpenseItem.css';
 import ExpenseDetail from './ExpenseDetail';
 
 const ExpenseItem = (props) => {
+
+  function deleteCard(e){
+    e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+  }
+
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date} />
       <ExpenseDetail detail={props}></ExpenseDetail>
+      <button onClick={deleteCard}>click</button>
     </Card>
   );
 }
