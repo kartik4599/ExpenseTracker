@@ -10,8 +10,8 @@ const ExpenseDetail = (props)=>{
         <div className='expense-item__description'>
         <h2>{title}</h2>
         <div className='expense-item__price'>${amount}</div>
-        <button onClick={()=>changeTitle("Updated")}>Change Title</button>
-        <button onClick={()=>changeAmount(100)}>Change Amount</button>
+        <button  className='expense-item__title' onClick={()=>changeTitle("Updated")}>Change Title</button>
+        <button className='expense-item__title' onClick={()=>changeAmount(100)}>Change Amount</button>
       </div>
     );
 }
