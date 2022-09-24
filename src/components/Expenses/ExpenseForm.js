@@ -52,9 +52,6 @@ const ExpenseForm=(props)=>{
                     <button type="submit">Add Expense</button>
                 </div>
             </div>
-            <div className="new-expense__control">
-                Title = {newtitle}, Amount={newamount}, Date={newdate}  
-            </div>
         </form>
     );
 }

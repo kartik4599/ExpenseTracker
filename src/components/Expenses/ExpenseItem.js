@@ -6,9 +6,9 @@ import ExpenseDetail from './ExpenseDetail';
 
 const ExpenseItem = (props) => {
 
-  function deleteCard(e){
-    e.target.parentElement.parentElement.removeChild(e.target.parentElement);
-  }
+  // function deleteCard(e){
+  //   e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+  // }
 
   return (
     <Card className='expense-item'>
