@@ -26,11 +26,11 @@ const ExpenseForm=(props)=>{
             amount:newamount,
             date:new Date(newdate)
         }
-        console.log(obj);
         props.onimportData(obj);
         changeTitle('');
         changeamount('');
         changedate('');
+        props.reset();
     }
 
     return (
@@ -47,6 +47,9 @@ const ExpenseForm=(props)=>{
                 <div className="new-expense__control">
                     <label>Add Expense Date </label>
                     <input type='date' min="2010-01-01" value={newdate} onChange={dateHandler}/><br/>            
+                </div>
+                <div className="new-expense__control">
+                    <button onClick={()=>{props.reset()}}>Cancle</button>
                 </div>
                 <div className="new-expense__control">
                     <button type="submit">Add Expense</button>

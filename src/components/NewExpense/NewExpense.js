@@ -1,7 +1,15 @@
+import { useState } from "react";
 import ExpenseForm from "../Expenses/ExpenseForm";
 import "./NewExpense.css";
 
 const NewExpense=(props)=>{
+
+    const [addExpense,changeAddExpense] = useState(true);
+
+    const addForm=()=>{
+        changeAddExpense(!addExpense);
+    }
+
 
     const importData=(data)=>{
         data={
@@ -11,9 +19,21 @@ const NewExpense=(props)=>{
         props.onImportData(data);
     }
 
-    return(<div className="new-expense">
-        <ExpenseForm onimportData={importData} />
+    
+
+    if(addExpense){
+        return(<div className="new-expense">
+            <button onClick={addForm}>Add Expense</button>
+        </div>)
+    }else{
+        return(<div className="new-expense">
+        <ExpenseForm onimportData={importData} reset={addForm} />
     </div>);
+    }
+
+    
+    
+
 }
 
 export default NewExpense;
