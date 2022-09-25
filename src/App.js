@@ -26,7 +26,7 @@ const App = () => {
     },
   ])
   const importData=(data)=>{
-    expenses.push(data);
+    expenses.unshift(data);
     updateExpenses([...expenses]);
     console.log(expenses);
   }
