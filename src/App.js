@@ -4,7 +4,7 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
-  const [expenses,updateExpenses]=useState([
+  const oldExpense=[
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -24,12 +24,25 @@ const App = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ])
+  ];
+  
+  const [expenses,updateExpenses]=useState(oldExpense)
+  
+
   const importData=(data)=>{
     expenses.unshift(data);
     updateExpenses([...expenses]);
     console.log(expenses);
   }
+
+  // const getYear=(Year)=>{
+  //   let list=[];
+  //   oldExpense.forEach((element)=>{
+  //       if(element.date.getFullYear().toString()===Year) list.push(element);
+  //       updateExpenses([...list]);
+  //   });
+  // }
+
 
   return (
     <div>
