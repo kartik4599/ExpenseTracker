@@ -25,8 +25,9 @@ const App = () => {
   }
 
   const clearData=()=>{
+    console.log("Clear");
     localStorage.clear();
-    updateExpenses();
+    updateExpenses([]);
   }
 
   return (
