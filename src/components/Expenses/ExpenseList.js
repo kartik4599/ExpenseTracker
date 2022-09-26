@@ -3,7 +3,7 @@ import ExpenseItem from "./ExpenseItem";
 const ExpenseList = (props)=>{
     //If There are no items
     if(props.items.length<1){
-        return <h2 className="expenses-list__fallback ">Found No Item</h2>
+        return <h2 className="expenses-list__fallback " >Found No Item</h2>
     }
     //If there is only one item
     if(props.items.length===1){
@@ -25,7 +25,7 @@ const ExpenseList = (props)=>{
       return( 
       <ul className="expenses-list">
         <ExpenseItem
-            key={element.id}
+            key={1}
             title={element.title}
             amount={element.amount}
             date={element.date}

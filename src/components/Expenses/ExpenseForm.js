@@ -23,7 +23,7 @@ const ExpenseForm=(props)=>{
         e.preventDefault();
         const obj={
             title:newtitle,
-            amount:newamount,
+            amount:+newamount,
             date:new Date(newdate)
         }
         props.onimportData(obj);
