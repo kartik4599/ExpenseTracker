@@ -24,6 +24,7 @@ const NewExpense=(props)=>{
     if(addExpense){
         return(<div className="new-expense">
             <button onClick={addForm}>Add Expense</button>
+            <button onClick={()=>{props.clear()}}>Clear All Data</button>
         </div>)
     }else{
         return(<div className="new-expense">

@@ -4,52 +4,34 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
+
   const oldExpense=[
-    {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { 
-      id: 'e2',
-      title: 'New TV', 
-      amount: 799.49, date: new Date(2021, 2, 12) 
-    },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
   ];
   
+  for(let i=0;i<localStorage.length;i++){
+    const add=JSON.parse(localStorage.getItem(localStorage.key(i)));
+    add.date=new Date(add.date);
+    console.log(add);
+    oldExpense.push(add);
+  }
+
   const [expenses,updateExpenses]=useState(oldExpense)
   
 
   const importData=(data)=>{
     expenses.unshift(data);
+    localStorage.setItem(data.id,JSON.stringify(data));
     updateExpenses([...expenses]);
   }
 
-  // const getYear=(Year)=>{
-  //   let list=[];
-  //   oldExpense.forEach((element)=>{
-  //       if(element.date.getFullYear().toString()===Year) list.push(element);
-  //       updateExpenses([...list]);
-  //   });
-  // }
-
+  const clearData=()=>{
+    localStorage.clear();
+    updateExpenses();
+  }
 
   return (
     <div>
-      <NewExpense onImportData={importData}/>
+      <NewExpense onImportData={importData} clear={clearData} />
       <Expenses items={expenses} />
     </div>
   );
